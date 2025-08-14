@@ -1,8 +1,9 @@
 [versions]
 kotlin = "2.2.0"
-ktor-plugin = "3.3.0-openapi-eap-153"
-ktor = "3.3.0-openapi-eap-1393"
+ktor-plugin = "3.3.0-openapi-eap-156"
+ktor = "3.3.0-openapi-eap-1394"
 logback = "1.4.14"
+swagger-codegen = "3.0.71"
 
 [libraries]
 ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor" }
@@ -17,6 +18,7 @@ logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "lo
 ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml", version.ref = "ktor" }
 ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+swagger-codegen = { module = "io.swagger.codegen.v3:swagger-codegen", version.ref = "swagger-codegen" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

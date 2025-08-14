@@ -2,15 +2,16 @@ package io.ktor
 
 import io.ktor.http.*
 import io.ktor.server.application.*
-import io.ktor.server.auth.OAuthAccessTokenResponse
-import io.ktor.server.auth.authenticate
-import io.ktor.server.auth.authentication
-import io.ktor.server.plugins.openapi.openAPI
+import io.ktor.server.auth.*
+import io.ktor.server.plugins.openapi.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.server.sessions.sessions
-import io.ktor.server.sessions.set
+import io.ktor.server.sessions.*
+import io.swagger.v3.oas.models.OpenAPI
+import io.swagger.v3.oas.models.Paths
+import io.swagger.v3.oas.models.media.Content
+import io.swagger.v3.oas.models.parameters.Parameter
 import kotlinx.serialization.Serializable
 
 fun Application.configureRouting() {
@@ -54,7 +55,9 @@ fun Application.configureRouting() {
             }
         }
 
-        openAPI("/docs")
+        openAPI("/docs") {
+            source = OpenAPISource("openapi/generated-api.json")
+        }
     }
 }
 
@@ -65,7 +68,7 @@ inline fun <reified E: Entity> Route.listCrud(list: MutableList<E>) {
      * @path id [ULong] the ID of the entity
      * @response 400 The ID parameter is malformatted or missing.
      * @response 404 The entity for the given ID does not exist.
-     * @response 200 [E] The entity found with the given ID.
+     * @response 200 The entity found with the given ID.
      */
     get("/{id}") {
         val id = call.parameters["id"]?.toULongOrNull()
@@ -75,15 +78,16 @@ inline fun <reified E: Entity> Route.listCrud(list: MutableList<E>) {
         call.respond(entity)
     }
     /**
-     * Get a list of [E].
+     * Get a list of entities.
      *
-     * @response 200 [E]+ The list of items.
+     * @response 200 The list of items.
      */
     get {
         call.respond(list)
     }
+
     /**
-     * Save a new [E].
+     * Save a new entity.
      *
      * @response 204 The new entity was saved.
      */
