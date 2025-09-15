@@ -1,7 +1,6 @@
 [versions]
-kotlin = "2.2.0"
-ktor-plugin = "3.3.0-openapi-eap-156"
-ktor = "3.3.0-openapi-eap-1394"
+kotlin = "2.2.20"
+ktor = "3.3.0"
 logback = "1.4.14"
 swagger-codegen = "3.0.71"
 
@@ -22,5 +21,5 @@ swagger-codegen = { module = "io.swagger.codegen.v3:swagger-codegen", version.re
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-ktor = { id = "io.ktor.plugin", version.ref = "ktor-plugin" }
+ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

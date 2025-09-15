@@ -689,12 +689,6 @@
   <script>
     // Script section to load models into a JS Var
     var defs = {}
-            defs["Message"] = {
-  "properties" : {
-    "id" : { },
-    "text" : { }
-  }
-};
             defs["User"] = {
   "properties" : {
     "id" : { },
@@ -969,6 +963,14 @@ except ApiException as e:
 
 
                           <h2>Responses</h2>
+                            <h3> Status: 302 -  </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
                         </article>
                       </div>
                       <hr>
@@ -1005,7 +1007,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-dataMessagesGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
--H "Accept: application/octet-stream"\
+-H "Accept: application/json"\
 "//data/messages"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-dataMessagesGet-0-java">
@@ -1187,17 +1189,17 @@ except ApiException as e:
                                         var schemaWrapper = {
   "description" : "The list of items.",
   "content" : {
-    "application/octet-stream" : {
+    "application/json" : {
       "schema" : {
-        "x-content-type" : "application/octet-stream",
+        "x-content-type" : "application/json",
         "items" : {
-          "$ref" : "#/components/schemas/Message"
+          "$ref" : "#/components/schemas/User"
         }
       }
     }
   }
 };
-                                        var schema = schemaWrapper.content["application/octet-stream"].schema;
+                                        var schema = schemaWrapper.content["application/json"].schema;
                                         if (schema.$ref != null) {
                                           schema = defsParser.$refs.get(schema.$ref);
                                         } else {
@@ -1519,7 +1521,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-dataMessagesIdGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
--H "Accept: application/octet-stream"\
+-H "Accept: application/json"\
 "//data/messages/{id}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-dataMessagesIdGet-0-java">
@@ -1538,7 +1540,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
          id = ; //  | the ID of the entity
         try {
-            Message result = apiInstance.dataMessagesIdGet(id);
+            User result = apiInstance.dataMessagesIdGet(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#dataMessagesIdGet");
@@ -1557,7 +1559,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
          id = ; //  | the ID of the entity
         try {
-            Message result = apiInstance.dataMessagesIdGet(id);
+            User result = apiInstance.dataMessagesIdGet(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#dataMessagesIdGet");
@@ -1577,7 +1579,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Get a single entity by ID.
 [apiInstance dataMessagesIdGetWith:id
-              completionHandler: ^(Message output, NSError* error) {
+              completionHandler: ^(User output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -1628,7 +1630,7 @@ namespace Example
             try
             {
                 // Get a single entity by ID.
-                Message result = apiInstance.dataMessagesIdGet(id);
+                User result = apiInstance.dataMessagesIdGet(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1764,14 +1766,14 @@ except ApiException as e:
                                         var schemaWrapper = {
   "description" : "The entity found with the given ID.",
   "content" : {
-    "application/octet-stream" : {
+    "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/Message"
+        "$ref" : "#/components/schemas/User"
       }
     }
   }
 };
-                                        var schema = schemaWrapper.content["application/octet-stream"].schema;
+                                        var schema = schemaWrapper.content["application/json"].schema;
                                         if (schema.$ref != null) {
                                           schema = defsParser.$refs.get(schema.$ref);
                                         } else {
@@ -1831,7 +1833,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-dataMessagesPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
--H "Content-Type: application/octet-stream"\
+-H "Content-Type: application/json"\
 "//data/messages"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-dataMessagesPost-0-java">
@@ -1848,7 +1850,7 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
-        Message body = ; // Message | 
+        User body = ; // User | 
         try {
             apiInstance.dataMessagesPost(body);
         } catch (ApiException e) {
@@ -1866,7 +1868,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        Message body = ; // Message | 
+        User body = ; // User | 
         try {
             apiInstance.dataMessagesPost(body);
         } catch (ApiException e) {
@@ -1881,7 +1883,7 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-dataMessagesPost-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Message *body = ; //  (optional)
+                              <pre class="prettyprint"><code class="language-cpp">User *body = ; //  (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -1900,7 +1902,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 var api = new OpenApiExample.DefaultApi()
 var opts = { 
-  'body':  // {{Message}} 
+  'body':  // {{User}} 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -1931,7 +1933,7 @@ namespace Example
         {
 
             var apiInstance = new DefaultApi();
-            var body = new Message(); // Message |  (optional) 
+            var body = new User(); // User |  (optional) 
 
             try
             {
@@ -1953,7 +1955,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
-$body = ; // Message | 
+$body = ; // User | 
 
 try {
     $api_instance->dataMessagesPost($body);
@@ -1969,7 +1971,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $body = WWW::SwaggerClient::Object::Message->new(); # Message | 
+my $body = WWW::SwaggerClient::Object::User->new(); # User | 
 
 eval { 
     $api_instance->dataMessagesPost(body => $body);
@@ -1988,7 +1990,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
-body =  # Message |  (optional)
+body =  # User |  (optional)
 
 try: 
     # Save a new entity.
@@ -2017,14 +2019,14 @@ except ApiException as e:
                                   var schemaWrapper = {
   "description" : "",
   "content" : {
-    "application/octet-stream" : {
+    "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/Message"
+        "$ref" : "#/components/schemas/User"
       }
     }
   }
 };
-                                  var schema = schemaWrapper.content["application/octet-stream"].schema;
+                                  var schema = schemaWrapper.content["application/json"].schema;
                                   if (schema.$ref != null) {
                                     schema = defsParser.$refs.get(schema.$ref);
                                   } else {
@@ -2093,7 +2095,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-dataUsersGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
--H "Accept: application/octet-stream"\
+-H "Accept: application/json"\
 "//data/users"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-dataUsersGet-0-java">
@@ -2275,9 +2277,9 @@ except ApiException as e:
                                         var schemaWrapper = {
   "description" : "The list of items.",
   "content" : {
-    "application/octet-stream" : {
+    "application/json" : {
       "schema" : {
-        "x-content-type" : "application/octet-stream",
+        "x-content-type" : "application/json",
         "items" : {
           "$ref" : "#/components/schemas/User"
         }
@@ -2285,7 +2287,7 @@ except ApiException as e:
     }
   }
 };
-                                        var schema = schemaWrapper.content["application/octet-stream"].schema;
+                                        var schema = schemaWrapper.content["application/json"].schema;
                                         if (schema.$ref != null) {
                                           schema = defsParser.$refs.get(schema.$ref);
                                         } else {
@@ -2607,7 +2609,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-dataUsersIdGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
--H "Accept: application/octet-stream"\
+-H "Accept: application/json"\
 "//data/users/{id}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-dataUsersIdGet-0-java">
@@ -2852,14 +2854,14 @@ except ApiException as e:
                                         var schemaWrapper = {
   "description" : "The entity found with the given ID.",
   "content" : {
-    "application/octet-stream" : {
+    "application/json" : {
       "schema" : {
         "$ref" : "#/components/schemas/User"
       }
     }
   }
 };
-                                        var schema = schemaWrapper.content["application/octet-stream"].schema;
+                                        var schema = schemaWrapper.content["application/json"].schema;
                                         if (schema.$ref != null) {
                                           schema = defsParser.$refs.get(schema.$ref);
                                         } else {
@@ -2919,7 +2921,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-dataUsersPost-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X POST\
--H "Content-Type: application/octet-stream"\
+-H "Content-Type: application/json"\
 "//data/users"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-dataUsersPost-0-java">
@@ -3105,14 +3107,14 @@ except ApiException as e:
                                   var schemaWrapper = {
   "description" : "",
   "content" : {
-    "application/octet-stream" : {
+    "application/json" : {
       "schema" : {
         "$ref" : "#/components/schemas/User"
       }
     }
   }
 };
-                                  var schema = schemaWrapper.content["application/octet-stream"].schema;
+                                  var schema = schemaWrapper.content["application/json"].schema;
                                   if (schema.$ref != null) {
                                     schema = defsParser.$refs.get(schema.$ref);
                                   } else {
@@ -3181,6 +3183,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-helloGet-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+-H "Accept: text/plaintext"\
 "//hello"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-helloGet-0-java">
@@ -3348,9 +3351,49 @@ except ApiException as e:
                             <h3> Status: 200 - Hello </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-helloGet-200-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-helloGet-200-schema">
+                                  <div id='responses-helloGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Hello",
+  "content" : {
+    "text/plaintext" : {
+      "schema" : {
+        "x-content-type" : "text/plaintext"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["text/plaintext"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-helloGet-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-helloGet-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-helloGet-200-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
@@ -3553,6 +3596,14 @@ except ApiException as e:
 
 
                           <h2>Responses</h2>
+                            <h3> Status: 302 -  </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
                         </article>
                       </div>
                       <hr>

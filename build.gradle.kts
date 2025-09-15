@@ -12,12 +12,17 @@ application {
 }
 
 ktor {
+    @OptIn(io.ktor.plugin.OpenApiPreview::class)
     openApi {
         title = "OpenAPI example"
         version = "2.1"
         summary = "This is a sample API"
-        enabled = true
     }
+}
+
+// Builds OpenAPI specification automatically
+tasks.processResources {
+    dependsOn("buildOpenApi")
 }
 
 dependencies {

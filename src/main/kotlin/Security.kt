@@ -11,6 +11,7 @@ import io.ktor.server.plugins.openapi.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
+import kotlinx.serialization.Serializable
 
 fun Application.configureSecurity() {
     authentication {
@@ -31,4 +32,6 @@ fun Application.configureSecurity() {
         }
     }
 }
+
+@Serializable
 data class UserSession(val accessToken: String)

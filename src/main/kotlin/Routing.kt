@@ -28,8 +28,6 @@ fun Application.configureRouting() {
              * Oauth callback endpoint.
              */
             get("/callback") {
-                val principal: OAuthAccessTokenResponse.OAuth2? = call.authentication.principal()
-                call.sessions.set(UserSession(principal?.accessToken.toString()))
                 call.respondRedirect("/hello")
             }
 
@@ -53,10 +51,6 @@ fun Application.configureRouting() {
                     listCrud(mutableListOf(Message(1u, "Hello World")))
                 }
             }
-        }
-
-        openAPI("/docs") {
-            source = OpenAPISource("openapi/generated-api.json")
         }
     }
 }
@@ -83,7 +77,7 @@ inline fun <reified E: Entity> Route.listCrud(list: MutableList<E>) {
      * @response 200 The list of items.
      */
     get {
-        call.respond(list)
+        call.respond<List<E>>(list)
     }
 
     /**
